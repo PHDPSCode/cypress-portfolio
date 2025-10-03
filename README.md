@@ -1,2 +1,2 @@
 # cypress-portfolio
-This is a showcase of advanced end-to-end (E2E) tests using Cypress. This portfolio showcases robust strategies for testing modern, dynamic web applications, focusing on key techniques such as network control with cy.intercept, reusable custom commands and advanced debugging to ensure stable, maintainable automation.
+This portfolio showcases a selection of sophisticated end-to-end (E2E) test suites developed using Cypress. These suites are designed to demonstrate robust automation strategies for contemporary web applications. Key highlights include using cy.intercept to manage the network layer, creating reusable logic with custom commands, and applying advanced debugging techniques to produce exceptionally stable and maintainable scripts.
