@@ -1,25 +1,26 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('acessarSauceDemo', () => {
+  cy.clearCookies();
+  cy.visit('/');
+});
+
+Cypress.Commands.add('preencherCredenciais', (
+    usuario = 'standard_user', 
+    senha = 'secret_sauce'
+) => {
+  cy.get('[data-test="username"]').type(`{selectall}{del}${usuario}`);
+  cy.get('[data-test="password"]').type(`{selectall}{del}${senha}`);
+  cy.submeterLogin();
+});
+
+Cypress.Commands.add('submeterLogin', () => {
+  cy.get('[data-test="login-button"]').click();
+});
+
+Cypress.Commands.add('realizarLogin', (
+    usuario = 'standard_user', 
+    senha = 'secret_sauce'
+) => {
+  cy.acessarSauceDemo();
+  cy.preencherCredenciais(usuario, senha);
+  cy.get('.app_logo').should('have.text', 'Swag Labs').and('be.visible');
+});
