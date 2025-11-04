@@ -39,13 +39,14 @@ const produtos = [
   },
 ];
 
-describe("Valida produtos da tela inicial", () => {
+describe('Valida produtos', () => {
   before(() => {
     cy.realizarLogin();
-  });
-  it("Validando produtos do menu", () => {
+  })
+  
+  it('Validando produtos disponíveis na página inicial', () => {
     produtos.forEach((produto) => {
-      cy.validaProduto(produto.nome, produto.preco, produto.descricao);
+        cy.validaListaProdutos(produto.nome, produto.preco, produto.descricao);
     });
-  });
-});
+  })
+})
