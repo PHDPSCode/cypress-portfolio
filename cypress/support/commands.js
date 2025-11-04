@@ -4,8 +4,8 @@ Cypress.Commands.add('acessarSauceDemo', () => {
 });
 
 Cypress.Commands.add('preencherCredenciais', (
-    usuario = 'standard_user', 
-    senha = 'secret_sauce'
+    usuario = Cypress.env("user").username, 
+    senha = Cypress.env("user").password
 ) => {
   cy.get('[data-test="username"]').type(`{selectall}{del}${usuario}`);
   cy.get('[data-test="password"]').type(`{selectall}{del}${senha}`);
@@ -17,8 +17,8 @@ Cypress.Commands.add('submeterLogin', () => {
 });
 
 Cypress.Commands.add('realizarLogin', (
-    usuario = 'standard_user', 
-    senha = 'secret_sauce'
+    usuario = Cypress.env("user").username, 
+    senha = Cypress.env("user").password
 ) => {
   cy.acessarSauceDemo();
   cy.preencherCredenciais(usuario, senha);

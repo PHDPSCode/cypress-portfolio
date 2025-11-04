@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const user = Cypress.env("user").user;
+const user = Cypress.env("user").username;
 const password = Cypress.env("user").password;
 const inpassword = "secret_asdasadsauce";
 const inuser = "standard_teste";
